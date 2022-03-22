@@ -8,9 +8,6 @@ func dp(s string, t string, cache [][]int, si int, ti int) int {
     }
     
     if cache[si][ti] != -1 {
-        if cache[si][ti] == -2 {
-            return -1
-        }
         return cache[si][ti]
     }
     
