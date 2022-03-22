@@ -14,19 +14,15 @@ func dp(s string, t string, cache [][]int, si int, ti int) int {
         return cache[si][ti]
     }
     
-    ret := -2
+    ret := 0
     for i := ti; i < len(t); i++ {
         if t[i] == s[si] {
-            if dp(s, t, cache, si+1, i+1) != -1 {
-                ret = max(ret, dp(s, t, cache, si+1, i+1) + 1) 
-            }
+            ret = max(ret, dp(s, t, cache, si+1, i+1) + 1) 
         }
     }
         
     if si < len(s) {
-        if dp(s, t, cache, si+1, ti) != -1 {
-            ret = max(ret, dp(s, t, cache, si+1, ti))
-        }
+        ret = max(ret, dp(s, t, cache, si+1, ti))
     }
         
     cache[si][ti] = ret
